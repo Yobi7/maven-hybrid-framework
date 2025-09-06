@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="OrangeHRM Automation Testing">
+
+    <listeners>
+        <listener class-name="commons.MethodListener"/>
+    </listeners>
+
+    <parameter name="url" value="https://www.facebook.com/" />
+
+    <test name="Run on Chrome browser">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="com.facebook.cases.Level_18_Undisplayed" />
+        </classes>
+    </test>
+
+
+
+</suite>
