@@ -1,0 +1,22 @@
+{
+  "invalid username": {
+    "username": "automn",
+    "password": "wrqYHGQvTSaUG9AR6&"
+  },
+  "invalid password": {
+    "username": "automationfc",
+    "password": "password123"
+  },
+  "empty username": {
+    "username": "",
+    "password": "wrqYHGQvTSaUG9AR6&"
+  },
+  "empty password": {
+    "username": "automationfc",
+    "password": ""
+  },
+  "empty all": {
+    "username": "",
+    "password": ""
+  }
+}

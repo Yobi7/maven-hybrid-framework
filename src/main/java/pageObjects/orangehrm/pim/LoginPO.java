@@ -2,6 +2,7 @@ package pageObjects.orangehrm.pim;
 
 import commons.BasePage;
 import org.openqa.selenium.WebDriver;
+import pageUIs.nopCommerce.user.UserRegisterPageUI;
 import pageUIs.orangehrm.LoginPUI;
 
 public class LoginPO extends BasePage {
@@ -24,7 +25,19 @@ public class LoginPO extends BasePage {
     public DashboardPO clickToLoginButton() {
         waitForElementClickable(driver, LoginPUI.LOGIN_BUTTON);
         clickToElement(driver, LoginPUI.LOGIN_BUTTON);
-        waitAllLoadingIconInvisible(driver);
+        //waitAllLoadingIconInvisible(driver);
         return PageGenerator.getDashboardPage(driver);
+    }
+
+    public void clickToLoginFail(String username, String password) {
+        enterToUsernameTextbox(username);
+        enterToPasswordTextbox(password);
+        sleepInSecond(1);
+        clickToElement(driver, LoginPUI.LOGIN_BUTTON);
+    }
+
+    public String getErrorMessage() {
+        waitForElementVisible(driver, LoginPUI.ERROR_MESSAGE);
+        return getElementText(driver, LoginPUI.ERROR_MESSAGE);
     }
 }
