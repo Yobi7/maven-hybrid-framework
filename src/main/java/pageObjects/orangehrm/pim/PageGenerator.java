@@ -31,4 +31,8 @@ public class PageGenerator {
     public static EmergencyContactsPO getEmergencyContactsPage(WebDriver driver)    {
         return new EmergencyContactsPO(driver);
     }
+
+    public static ForgotPassPO getForgotPassPage(WebDriver driver)    {
+        return new ForgotPassPO(driver);
+    }
 }

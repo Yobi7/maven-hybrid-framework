@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import commons.GlobalConstants;
+import io.qameta.allure.Step;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,10 +32,12 @@ public class LoginInfoJSON {
     @JsonProperty("password")
     private String password;
 
+    @Step("Get User Name: {0}")
     public String getUsername() {
         return username;
     }
 
+    @Step("Get Password: {0}")
     public String getPassword() {
         return password;
     }

@@ -17,8 +17,8 @@ public class GlobalConstants {
     public static final String STAGING_ADMIN_URL = "http://staging.techpanda.org/index.php/backendlogin";
     public static final String LIVE_ADMIN_URL = "http://live.techpanda.org/index.php/backendlogin";
 
-    public static final String ADMIN_USERNAME = "admin@yourstore.com";
-    public static final String ADMIN_PASSWORD = "admin";
+    public static final String ADMIN_USERNAME = "automationfc";
+    public static final String ADMIN_PASSWORD = "wrqYHGQvTSaUG9AR6&";
 
     // Wait Infor
     public static final long SHORT_TIMEOUT = 10;

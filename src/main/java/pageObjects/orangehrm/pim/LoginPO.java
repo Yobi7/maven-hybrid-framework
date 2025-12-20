@@ -1,7 +1,9 @@
 package pageObjects.orangehrm.pim;
 
 import commons.BasePage;
+import commons.LoginHelper;
 import org.openqa.selenium.WebDriver;
+import pageObjects.nopCommerce.user.UserHomePO;
 import pageUIs.nopCommerce.user.UserRegisterPageUI;
 import pageUIs.orangehrm.LoginPUI;
 
@@ -29,6 +31,14 @@ public class LoginPO extends BasePage {
         return PageGenerator.getDashboardPage(driver);
     }
 
+    public DashboardPO loginToSystem(String emailAddress, String password) {
+        enterToUsernameTextbox(emailAddress);
+        enterToPasswordTextbox(password);
+        clickToLoginButton();
+        return PageGenerator.getDashboardPage(driver);
+    }
+
+
     public void clickToLoginFail(String username, String password) {
         enterToUsernameTextbox(username);
         enterToPasswordTextbox(password);
@@ -39,5 +49,16 @@ public class LoginPO extends BasePage {
     public String getErrorMessage() {
         waitForElementVisible(driver, LoginPUI.ERROR_MESSAGE);
         return getElementText(driver, LoginPUI.ERROR_MESSAGE);
+    }
+
+    public boolean isLogoVisible() {
+        waitForElementVisible(driver,LoginPUI.LOGO_LOGIN_IMG);
+        return isElementDisplayed(driver, LoginPUI.LOGO_LOGIN_IMG);
+    }
+
+    public ForgotPassPO clickToForgotPasswordButton() {
+        waitForElementClickable(driver,LoginPUI.FORGOT_PASSWORD_LINK);
+        clickToElement(driver,LoginPUI.FORGOT_PASSWORD_LINK);
+        return PageGenerator.getForgotPassPage(driver);
     }
 }

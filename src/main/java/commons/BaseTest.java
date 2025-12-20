@@ -5,6 +5,7 @@ package commons;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -12,6 +13,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.BeforeSuite;
+import pageUIs.orangehrm.LoginPUI;
 
 import java.io.File;
 import java.io.IOException;
@@ -192,4 +194,7 @@ public class BaseTest {
             }
         }
     }
+
+
+
 }

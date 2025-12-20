@@ -1,28 +1,22 @@
-package com.orangehrm.pim;
+package com.orangehrm.login;
 
 import commons.BaseTest;
-import jdk.jfr.Description;
-import org.openqa.selenium.Dimension;
+
+import io.qameta.allure.Description;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.orangehrm.pim.DashboardPO;
 import pageObjects.orangehrm.pim.LoginPO;
 import pageObjects.orangehrm.pim.PageGenerator;
-import pageObjects.orangehrm.pim.employee.AddNewEmployeePO;
-import pageObjects.orangehrm.pim.employee.EmployeeListPO;
-import pageObjects.orangehrm.pim.employee.PersonalDetailsPO;
 import testdata.jsonData.orangeHRM.LoginInfoJSON;
 
-import java.util.List;
 import java.util.Map;
 
-public class Login extends BaseTest {
+public class Login_Negative extends BaseTest {
     WebDriver driver;
-    //FakerConfig fakerConfig;
     private LoginPO loginPage;
     private String username;
     private String password;

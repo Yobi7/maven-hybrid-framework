@@ -11,7 +11,7 @@
     <test name="Run on Chrome browser">
         <parameter name="browser" value="firefox" />
         <classes>
-            <class name="com.orangehrm.pim.Login" />
+            <class name="com.orangehrm.pim.PIM_01_Employee" />
         </classes>
     </test>
 

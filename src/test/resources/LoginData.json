@@ -18,5 +18,9 @@
   "empty all": {
     "username": "",
     "password": ""
+  },
+  "valid all": {
+    "username": "automationfc",
+    "password": "wrqYHGQvTSaUG9AR6&"
   }
 }

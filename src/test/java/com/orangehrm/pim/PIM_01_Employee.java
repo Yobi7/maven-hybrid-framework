@@ -1,6 +1,7 @@
 package com.orangehrm.pim;
 
 import commons.BaseTest;
+import commons.LoginHelper;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -45,9 +46,7 @@ public class PIM_01_Employee extends BaseTest {
         dateOfBirth = "1995-03-05";
         gender = "Male";
 
-        loginPage.enterToUsernameTextbox("automationfc");
-        loginPage.enterToPasswordTextbox("wrqYHGQvTSaUG9AR6&");
-        dashboardPage = loginPage.clickToLoginButton();
+        dashboardPage = LoginHelper.LoginAsAdmin(driver);
     }
 
     @Test
