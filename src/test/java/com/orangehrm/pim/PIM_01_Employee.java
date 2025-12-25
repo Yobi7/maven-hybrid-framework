@@ -15,6 +15,8 @@ import pageObjects.orangehrm.pim.PageGenerator;
 import pageObjects.orangehrm.pim.employee.AddNewEmployeePO;
 import pageObjects.orangehrm.pim.employee.EmployeeListPO;
 import pageObjects.orangehrm.pim.employee.PersonalDetailsPO;
+import testdata.EmployeeDataFactory;
+import testdata.PIM.EmployeeData;
 
 public class PIM_01_Employee extends BaseTest {
     private WebDriver driver;
@@ -34,9 +36,6 @@ public class PIM_01_Employee extends BaseTest {
         driver = getBrowserDriver(browserName, url);
         loginPage = PageGenerator.getLoginPage(driver);
 
-        firstName = "John";
-        lastName = "Wick";
-
         editFirstName = "Donald";
         editLastName = "Trump";
         driverLicenseNumber = "012345678";
@@ -52,13 +51,10 @@ public class PIM_01_Employee extends BaseTest {
     @Test
     public void Employee_01_Add_New() {
         employeeListPage = dashboardPage.clickToPIMPage();
-
         addNewEmployeePage = employeeListPage.clickToAddEmployeeButton();
 
-        addNewEmployeePage.enterToFirstNameTextbox(firstName);
-        addNewEmployeePage.enterToLastNameTextbox(lastName);
+        addNewEmployeePage.addNewEmployee(EmployeeDataFactory.happyCase());
         employeeID = addNewEmployeePage.getEmployeeID();
-
         personalDetailsPage = addNewEmployeePage.clickToSaveButtonAtEmployeeContainer();
     }
 
@@ -112,20 +108,20 @@ public class PIM_01_Employee extends BaseTest {
         Assert.assertTrue(personalDetailsPage.isGenderMaleRadioSelected(gender));
     }
 
-    @Test
-    public void Employee_04_Contact_Details() {
-
-    }
-
-    @Test
-    public void Employee_05_Emergency_Contact() {
-
-    }
-
-    @Test
-    public void Employee_06_Dependents() {
-
-    }
+//    @Test
+//    public void Employee_04_Contact_Details() {
+//
+//    }
+//
+//    @Test
+//    public void Employee_05_Emergency_Contact() {
+//
+//    }
+//
+//    @Test
+//    public void Employee_06_Dependents() {
+//
+//    }
 
     @AfterClass(alwaysRun = true)
     public void afterClass() {
