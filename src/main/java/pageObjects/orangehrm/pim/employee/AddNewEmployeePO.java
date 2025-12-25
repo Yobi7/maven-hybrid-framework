@@ -4,7 +4,7 @@ import commons.BasePage;
 import org.openqa.selenium.WebDriver;
 import pageObjects.orangehrm.pim.PageGenerator;
 import pageUIs.orangehrm.pim.employee.AddNewPUI;
-import testdata.PIM.EmployeeData;
+import testDataPOJO.PIM.Employee;
 
 public class AddNewEmployeePO extends BasePage {
     private WebDriver driver;
@@ -36,7 +36,7 @@ public class AddNewEmployeePO extends BasePage {
     }
 
     // ===== business flow (HAPPY CASE) =====
-    public void addNewEmployee(EmployeeData data) {
+    public void addNewEmployee(Employee data) {
         enterToFirstNameTextbox(data.getFirstName());
         enterToLastNameTextbox(data.getLastName());
     }

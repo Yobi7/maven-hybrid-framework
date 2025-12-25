@@ -15,8 +15,8 @@ import pageObjects.orangehrm.pim.PageGenerator;
 import pageObjects.orangehrm.pim.employee.AddNewEmployeePO;
 import pageObjects.orangehrm.pim.employee.EmployeeListPO;
 import pageObjects.orangehrm.pim.employee.PersonalDetailsPO;
-import testdata.EmployeeDataFactory;
-import testdata.PIM.EmployeeData;
+import testDataPOJO.EmployeeData;
+import testDataPOJO.PIM.Employee;
 
 public class PIM_01_Employee extends BaseTest {
     private WebDriver driver;
@@ -53,7 +53,7 @@ public class PIM_01_Employee extends BaseTest {
         employeeListPage = dashboardPage.clickToPIMPage();
         addNewEmployeePage = employeeListPage.clickToAddEmployeeButton();
 
-        addNewEmployeePage.addNewEmployee(EmployeeDataFactory.happyCase());
+        addNewEmployeePage.addNewEmployee(EmployeeData.happyCase());
         employeeID = addNewEmployeePage.getEmployeeID();
         personalDetailsPage = addNewEmployeePage.clickToSaveButtonAtEmployeeContainer();
     }
@@ -70,20 +70,24 @@ public class PIM_01_Employee extends BaseTest {
 
         personalDetailsPage.clickToSaveButtonAtProfileContainer();
 
+        //1
         Assert.assertTrue(personalDetailsPage.isSuccessMessageIsDisplayed(driver));
 
+        //2
         personalDetailsPage.waitAllLoadingIconInvisible(driver);
 
+        //3
         Assert.assertTrue(personalDetailsPage.isProfileAvatarUpdateSuccess(beforeUpload));
 
     }
 
     @Test
-    public void Employee_03_Personal_Details() {
+    public void Employee_03_Update_Personal_Details() {
         personalDetailsPage.openPersonalDetailPage();
+        Employee updateEmployee = EmployeeData.updatePersonalDetails();
 
-        personalDetailsPage.enterToFirstNameTextbox(editFirstName);
-        personalDetailsPage.enterToLastNameTextbox(editLastName);
+        personalDetailsPage.enterToFirstNameTextbox(updateEmployee);
+        personalDetailsPage.enterToLastNameTextbox(updateEmployee);
 
         Assert.assertEquals(personalDetailsPage.getEmployeeID(), employeeID);
 
@@ -97,8 +101,8 @@ public class PIM_01_Employee extends BaseTest {
 
         Assert.assertTrue(personalDetailsPage.isSuccessMessageIsDisplayed(driver));
 
-        Assert.assertEquals(personalDetailsPage.getFirstNameTextboxValue(), editFirstName);
-        Assert.assertEquals(personalDetailsPage.getLastNameTextboxValue(), editLastName);
+        Assert.assertEquals(personalDetailsPage.getFirstNameTextboxValue(), updateEmployee.getFirstName());
+        Assert.assertEquals(personalDetailsPage.getLastNameTextboxValue(), updateEmployee.getLastName());
         Assert.assertEquals(personalDetailsPage.getEmployeeID(), employeeID);
         Assert.assertEquals(personalDetailsPage.getDriverLicenseTextboxValue(), driverLicenseNumber);
         Assert.assertEquals(personalDetailsPage.getLicenseExpiryDateTextboxValue(), driverLicenseExpiryDate);

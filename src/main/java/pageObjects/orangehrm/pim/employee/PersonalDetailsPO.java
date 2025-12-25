@@ -3,6 +3,7 @@ package pageObjects.orangehrm.pim.employee;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import pageUIs.orangehrm.pim.employee.PersonalDetailsPUI;
+import testDataPOJO.PIM.Employee;
 
 public class PersonalDetailsPO extends EmployeeTabs {
     private WebDriver driver;
@@ -33,14 +34,14 @@ public class PersonalDetailsPO extends EmployeeTabs {
         return  !(beforeUpload.equals(afterUpload));
     }
 
-    public void enterToFirstNameTextbox(String firstName) {
+    public void enterToFirstNameTextbox(Employee data) {
         waitForElementVisible(driver, PersonalDetailsPUI.FIRSTNAME_TEXTBOX);
-        sendkeyToElement(driver, PersonalDetailsPUI.FIRSTNAME_TEXTBOX, firstName);
+        sendkeyToElement(driver, PersonalDetailsPUI.FIRSTNAME_TEXTBOX, data.getFirstName());
     }
 
-    public void enterToLastNameTextbox(String lastName) {
+    public void enterToLastNameTextbox(Employee data) {
         waitForElementVisible(driver, PersonalDetailsPUI.LASTNAME_TEXTBOX);
-        sendkeyToElement(driver, PersonalDetailsPUI.LASTNAME_TEXTBOX, lastName);
+        sendkeyToElement(driver, PersonalDetailsPUI.LASTNAME_TEXTBOX, data.getLastName());
     }
 
     public String getEmployeeID() {

@@ -1,4 +1,4 @@
-package testdata.jsonData.orangeHRM;
+package testDataPOJO.jsonData.orangeHRM;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -9,7 +9,6 @@ import io.qameta.allure.Step;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Map;
 
 public class LoginInfoJSON {
