@@ -2,6 +2,7 @@ package com.orangehrm.pim;
 
 import commons.BaseTest;
 import commons.LoginHelper;
+import models.PIM.Employee;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -15,10 +16,9 @@ import pageObjects.orangehrm.pim.PageGenerator;
 import pageObjects.orangehrm.pim.employee.AddNewEmployeePO;
 import pageObjects.orangehrm.pim.employee.EmployeeListPO;
 import pageObjects.orangehrm.pim.employee.PersonalDetailsPO;
-import testDataPOJO.EmployeeData;
-import testDataPOJO.PIM.Employee;
+import testData.EmployeeData;
 
-public class PIM_01_Employee extends BaseTest {
+public class PIM_01_Employee_Json extends BaseTest {
     private WebDriver driver;
     private LoginPO loginPage;
     private DashboardPO dashboardPage;
@@ -84,32 +84,32 @@ public class PIM_01_Employee extends BaseTest {
     @Test
     public void Employee_03_Update_Personal_Details() {
         personalDetailsPage.openPersonalDetailPage();
-        Employee updateEmployee = EmployeeData.updatePersonalDetails();
+        Employee editEmployee = EmployeeData.happyCase();
 
-        personalDetailsPage.enterToFirstNameTextbox(updateEmployee);
-        personalDetailsPage.enterToLastNameTextbox(updateEmployee);
+        personalDetailsPage.enterToFirstNameTextbox(editEmployee.getFirstName());
+        personalDetailsPage.enterToLastNameTextbox(editEmployee.getLastName());
 
         Assert.assertEquals(personalDetailsPage.getEmployeeID(), employeeID);
 
-        personalDetailsPage.enterToDriverLicenseTextbox(driverLicenseNumber);
-        personalDetailsPage.enterToLicenseExpiryDateTextbox(driverLicenseExpiryDate);
-        personalDetailsPage.selectNationalityDropdown(nationality);
-        personalDetailsPage.selectMaritalStatusDropdown(maritalStatus);
-        personalDetailsPage.enterToDateOfBirthTextbox(dateOfBirth);
-        personalDetailsPage.selectGenderMaleRadioButton(gender);
+        personalDetailsPage.enterToDriverLicenseTextbox(editEmployee.getDriverLicenseNumber());
+        personalDetailsPage.enterToLicenseExpiryDateTextbox(editEmployee.getDriverLicenseExpiryDate());
+        personalDetailsPage.selectNationalityDropdown(editEmployee.getNationality());
+        personalDetailsPage.selectMaritalStatusDropdown(editEmployee.getMaritalStatus());
+        personalDetailsPage.enterToDateOfBirthTextbox(editEmployee.getDateOfBirth());
+        personalDetailsPage.selectGenderMaleRadioButton(editEmployee.getGender());
         personalDetailsPage.clickSaveButtonAtPersonalDetailContainer();
 
         Assert.assertTrue(personalDetailsPage.isSuccessMessageIsDisplayed(driver));
 
-        Assert.assertEquals(personalDetailsPage.getFirstNameTextboxValue(), updateEmployee.getFirstName());
-        Assert.assertEquals(personalDetailsPage.getLastNameTextboxValue(), updateEmployee.getLastName());
+        Assert.assertEquals(personalDetailsPage.getFirstNameTextboxValue(), editEmployee.getFirstName());
+        Assert.assertEquals(personalDetailsPage.getLastNameTextboxValue(), editEmployee.getLastName());
         Assert.assertEquals(personalDetailsPage.getEmployeeID(), employeeID);
-        Assert.assertEquals(personalDetailsPage.getDriverLicenseTextboxValue(), driverLicenseNumber);
-        Assert.assertEquals(personalDetailsPage.getLicenseExpiryDateTextboxValue(), driverLicenseExpiryDate);
-        Assert.assertEquals(personalDetailsPage.getNationalityDropdownValue(), nationality);
-        Assert.assertEquals(personalDetailsPage.getMaritalStatusDropdownValue(), maritalStatus);
-        Assert.assertEquals(personalDetailsPage.getDateOfBirthTextboxValue(), dateOfBirth);
-        Assert.assertTrue(personalDetailsPage.isGenderMaleRadioSelected(gender));
+        Assert.assertEquals(personalDetailsPage.getDriverLicenseTextboxValue(), editEmployee.getDriverLicenseNumber());
+        Assert.assertEquals(personalDetailsPage.getLicenseExpiryDateTextboxValue(), editEmployee.getDriverLicenseExpiryDate());
+        Assert.assertEquals(personalDetailsPage.getNationalityDropdownValue(), editEmployee.getNationality());
+        Assert.assertEquals(personalDetailsPage.getMaritalStatusDropdownValue(), editEmployee.getMaritalStatus());
+        Assert.assertEquals(personalDetailsPage.getDateOfBirthTextboxValue(), editEmployee.getDateOfBirth());
+        Assert.assertTrue(personalDetailsPage.isGenderMaleRadioSelected(editEmployee.getGender()));
     }
 
 //    @Test

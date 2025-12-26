@@ -1,4 +1,4 @@
-package testDataPOJO.jsonData.orangeHRM;
+package models.jsonData.orangeHRM;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;

@@ -4,7 +4,7 @@ import commons.BasePage;
 import org.openqa.selenium.WebDriver;
 import pageObjects.orangehrm.pim.PageGenerator;
 import pageUIs.orangehrm.pim.employee.AddNewPUI;
-import testDataPOJO.PIM.Employee;
+import models.PIM.Employee;
 
 public class AddNewEmployeePO extends BasePage {
     private WebDriver driver;
@@ -36,9 +36,18 @@ public class AddNewEmployeePO extends BasePage {
     }
 
     // ===== business flow (HAPPY CASE) =====
-    public void addNewEmployee(Employee data) {
-        enterToFirstNameTextbox(data.getFirstName());
-        enterToLastNameTextbox(data.getLastName());
+    public void addNewEmployee(Employee employee) {
+        enterToFirstNameTextbox(employee.getFirstName());
+        enterToLastNameTextbox(employee.getLastName());
     }
 
+    public void addEmployeeWithFirstNameNull(Employee employee) {
+        employee.setFirstName("");
+        addNewEmployee(employee);
+    }
+
+    public String showErrorMessage() {
+        waitForElementVisible(driver, AddNewPUI.ERROR_TEXT_WITH_FIRSTNAME_NULL);
+        return getElementText(driver, AddNewPUI.ERROR_TEXT_WITH_FIRSTNAME_NULL);
+    }
 }

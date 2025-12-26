@@ -7,4 +7,5 @@ public class AddNewPUI {
     public static final String SAVE_BUTTON_AT_ADD_EMPLOYEE_CONTAINER = "xpath=//h6[text()='Add Employee']/following-sibling::form//button[contains(string(),'Save')]";
 
 
+    public static final String ERROR_TEXT_WITH_FIRSTNAME_NULL = "xpath=//input[@name='firstName']/parent::div/following-sibling::span";
 }

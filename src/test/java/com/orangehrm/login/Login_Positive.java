@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import pageObjects.orangehrm.pim.ForgotPassPO;
 import pageObjects.orangehrm.pim.LoginPO;
 import pageObjects.orangehrm.pim.PageGenerator;
-import testDataPOJO.jsonData.orangeHRM.LoginInfoJSON;
+import models.jsonData.orangeHRM.LoginInfoJSON;
 
 import java.util.Map;
 

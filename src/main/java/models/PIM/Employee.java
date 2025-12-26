@@ -1,4 +1,4 @@
-package testDataPOJO.PIM;
+package models.PIM;
 
 public class Employee {
     private String firstName;
