@@ -46,6 +46,7 @@ public class PIM_01_Employee_Json extends BaseTest {
 
         addNewEmployeePage.addNewEmployee(EmployeeInfo.happyCase());
         employeeID = addNewEmployeePage.getEmployeeID();
+        System.out.println("Employee ID: " + employeeID);
         personalDetailsPage = addNewEmployeePage.clickToSaveButtonAtEmployeeContainer();
     }
 
