@@ -1,9 +1,9 @@
-package testData;
+package data;
 
 import com.github.javafaker.Faker;
 import models.PIM.Employee;
 
-public class EmployeeData {
+public class EmployeeInfo {
 
     private static Faker faker = new Faker();
 

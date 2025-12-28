@@ -36,18 +36,31 @@ public class AddNewEmployeePO extends BasePage {
     }
 
     // ===== business flow (HAPPY CASE) =====
+//    public void addNewEmployee(Employee employee) {
+//        enterToFirstNameTextbox(employee.getFirstName());
+//        enterToLastNameTextbox(employee.getLastName());
+//    }
+//
+//    public void addEmployeeWithFirstNameNull(Employee employee) {
+//        employee.setFirstName("");
+//        addNewEmployee(employee);
+//    }
+
+    public String showErrorMessage() {
+        waitForElementVisible(driver, AddNewPUI.ERROR_TEXT_WITH_FIRSTNAME_NULL);
+        return getElementText(driver, AddNewPUI.ERROR_TEXT_WITH_FIRSTNAME_NULL);
+    }
+
+    // ===== JSON - Happy flow =====
     public void addNewEmployee(Employee employee) {
         enterToFirstNameTextbox(employee.getFirstName());
         enterToLastNameTextbox(employee.getLastName());
     }
 
-    public void addEmployeeWithFirstNameNull(Employee employee) {
+    // ===== JSON - Unhappy behavior =====
+    public void addEmployeeWithoutFirstName(Employee employee) {
+        // Override data không hợp lệ tại PO
         employee.setFirstName("");
         addNewEmployee(employee);
-    }
-
-    public String showErrorMessage() {
-        waitForElementVisible(driver, AddNewPUI.ERROR_TEXT_WITH_FIRSTNAME_NULL);
-        return getElementText(driver, AddNewPUI.ERROR_TEXT_WITH_FIRSTNAME_NULL);
     }
 }

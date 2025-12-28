@@ -1,0 +1,12 @@
+{
+  "happyCase": {
+    "firstName": "AUTO",
+    "lastName": "AUTO",
+    "driverLicenseNumber": "AUTO",
+    "driverLicenseExpiryDate": "2030-10-10",
+    "nationality": "American",
+    "maritalStatus": "Married",
+    "dateOfBirth": "1995-03-05",
+    "gender": "Male"
+  }
+}

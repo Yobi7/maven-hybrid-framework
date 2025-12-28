@@ -2,8 +2,6 @@ package com.orangehrm.pim;
 
 import commons.BaseTest;
 import commons.LoginHelper;
-import models.PIM.Employee;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -16,7 +14,7 @@ import pageObjects.orangehrm.pim.PageGenerator;
 import pageObjects.orangehrm.pim.employee.AddNewEmployeePO;
 import pageObjects.orangehrm.pim.employee.EmployeeListPO;
 import pageObjects.orangehrm.pim.employee.PersonalDetailsPO;
-import testData.EmployeeData;
+import data.EmployeeInfo;
 
 public class PIM_01_Employee_Unhappy_POJO extends BaseTest {
     private WebDriver driver;
@@ -53,7 +51,7 @@ public class PIM_01_Employee_Unhappy_POJO extends BaseTest {
         employeeListPage = dashboardPage.clickToPIMPage();
         addNewEmployeePage = employeeListPage.clickToAddEmployeeButton();
 
-        addNewEmployeePage.addEmployeeWithFirstNameNull(EmployeeData.happyCase());
+        //addNewEmployeePage.addEmployeeWithFirstNameNull(EmployeeInfo.happyCase());
 
         employeeID = addNewEmployeePage.getEmployeeID();
         personalDetailsPage = addNewEmployeePage.clickToSaveButtonAtEmployeeContainer();

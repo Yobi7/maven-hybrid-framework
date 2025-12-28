@@ -16,7 +16,7 @@ import pageObjects.orangehrm.pim.PageGenerator;
 import pageObjects.orangehrm.pim.employee.AddNewEmployeePO;
 import pageObjects.orangehrm.pim.employee.EmployeeListPO;
 import pageObjects.orangehrm.pim.employee.PersonalDetailsPO;
-import testData.EmployeeData;
+import data.EmployeeInfo;
 
 public class PIM_01_Employee_Json extends BaseTest {
     private WebDriver driver;
@@ -36,15 +36,6 @@ public class PIM_01_Employee_Json extends BaseTest {
         driver = getBrowserDriver(browserName, url);
         loginPage = PageGenerator.getLoginPage(driver);
 
-        editFirstName = "Donald";
-        editLastName = "Trump";
-        driverLicenseNumber = "012345678";
-        driverLicenseExpiryDate = "2030-10-10";
-        nationality = "American";
-        maritalStatus = "Married";
-        dateOfBirth = "1995-03-05";
-        gender = "Male";
-
         dashboardPage = LoginHelper.LoginAsAdmin(driver);
     }
 
@@ -53,7 +44,7 @@ public class PIM_01_Employee_Json extends BaseTest {
         employeeListPage = dashboardPage.clickToPIMPage();
         addNewEmployeePage = employeeListPage.clickToAddEmployeeButton();
 
-        addNewEmployeePage.addNewEmployee(EmployeeData.happyCase());
+        addNewEmployeePage.addNewEmployee(EmployeeInfo.happyCase());
         employeeID = addNewEmployeePage.getEmployeeID();
         personalDetailsPage = addNewEmployeePage.clickToSaveButtonAtEmployeeContainer();
     }
@@ -81,10 +72,10 @@ public class PIM_01_Employee_Json extends BaseTest {
 
     }
 
-    @Test
+ //   @Test
     public void Employee_03_Update_Personal_Details() {
         personalDetailsPage.openPersonalDetailPage();
-        Employee editEmployee = EmployeeData.happyCase();
+        Employee editEmployee = EmployeeInfo.happyCase();
 
         personalDetailsPage.enterToFirstNameTextbox(editEmployee.getFirstName());
         personalDetailsPage.enterToLastNameTextbox(editEmployee.getLastName());

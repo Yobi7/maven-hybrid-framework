@@ -15,7 +15,7 @@ import pageObjects.orangehrm.pim.PageGenerator;
 import pageObjects.orangehrm.pim.employee.AddNewEmployeePO;
 import pageObjects.orangehrm.pim.employee.EmployeeListPO;
 import pageObjects.orangehrm.pim.employee.PersonalDetailsPO;
-import testData.EmployeeData;
+import data.EmployeeInfo;
 import models.PIM.Employee;
 
 public class PIM_01_Employee_POJO extends BaseTest {
@@ -53,7 +53,7 @@ public class PIM_01_Employee_POJO extends BaseTest {
         employeeListPage = dashboardPage.clickToPIMPage();
         addNewEmployeePage = employeeListPage.clickToAddEmployeeButton();
 
-        addNewEmployeePage.addNewEmployee(EmployeeData.happyCase());
+        addNewEmployeePage.addNewEmployee(EmployeeInfo.happyCase());
         employeeID = addNewEmployeePage.getEmployeeID();
         personalDetailsPage = addNewEmployeePage.clickToSaveButtonAtEmployeeContainer();
     }
@@ -84,7 +84,7 @@ public class PIM_01_Employee_POJO extends BaseTest {
     @Test
     public void Employee_03_Update_Personal_Details() {
         personalDetailsPage.openPersonalDetailPage();
-        Employee editEmployee = EmployeeData.happyCase();
+        Employee editEmployee = EmployeeInfo.happyCase();
 
         personalDetailsPage.enterToFirstNameTextbox(editEmployee.getFirstName());
         personalDetailsPage.enterToLastNameTextbox(editEmployee.getLastName());
