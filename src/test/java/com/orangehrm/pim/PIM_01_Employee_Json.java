@@ -2,6 +2,7 @@ package com.orangehrm.pim;
 
 import commons.BaseTest;
 import commons.LoginHelper;
+import data.JsonDataHelper;
 import models.PIM.Employee;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
@@ -44,9 +45,12 @@ public class PIM_01_Employee_Json extends BaseTest {
         employeeListPage = dashboardPage.clickToPIMPage();
         addNewEmployeePage = employeeListPage.clickToAddEmployeeButton();
 
-        addNewEmployeePage.addNewEmployee(EmployeeInfo.happyCase());
+        Employee employee = JsonDataHelper.getEmployee("happyCase");
+        addNewEmployeePage.addNewEmployee(employee);
+
         employeeID = addNewEmployeePage.getEmployeeID();
         System.out.println("Employee ID: " + employeeID);
+
         personalDetailsPage = addNewEmployeePage.clickToSaveButtonAtEmployeeContainer();
     }
 
