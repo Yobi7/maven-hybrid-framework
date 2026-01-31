@@ -10,16 +10,18 @@ public class LoginAPI {
 
     public static String loginAndGetCookie() {
 
-        RestAssured.baseURI = "http://localhost";
+        // Khai báo server gốc
+        // Mọi request sau đó sẽ gọi tới: http://localhost:80 + endpoint
+        RestAssured.baseURI = "http://localhost:80";
 
         Response response =
                 given()
                         .contentType(ContentType.URLENC)
                         .formParam("username", "automationfc")
                         .formParam("password", "wrqYHGQvTSaUG9AR6&")
-                        .when()
+                .when()
                         .post("/orangehrm/web/index.php/auth/validate")
-                        .then()
+                .then()
                         .statusCode(302) // hoặc 200 tuỳ bản
                         .extract()
                         .response();
